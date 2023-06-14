@@ -7,14 +7,16 @@ export const SelectedTheme = () => {
 
 const Theme = {
   light: {
-    backgroundColor: '#FFFFFF',
+    barsBackgroundColor: '#FFFFFF',
+    backgroundColor: '#18204d',
     primaryTextColor: '#000000',
     disabledTextColor: '#000000',
     greenColor: '#4ab580',
     yellowColor: '#ffbc00',
   },
   dark: {
-    backgroundColor: '#000000',
+    barsBackgroundColor: '#000000',
+    backgroundColor: '#18204d',
     primaryTextColor: '#FFFFFF',
     disabledTextColor: '#858585',
     greenColor: '#4ab580',

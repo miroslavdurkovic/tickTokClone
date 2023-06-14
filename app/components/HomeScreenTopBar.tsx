@@ -8,7 +8,8 @@ export const HomeScreenTopBar = () => {
   const theme = SelectedTheme();
 
   return (
-    <View style={[{backgroundColor: theme.backgroundColor}, styles.container]}>
+    <View
+      style={[{backgroundColor: theme.barsBackgroundColor}, styles.container]}>
       <View style={styles.leftViewContainer}>
         <Icon name={'clock-o'} color={theme.disabledTextColor} />
         <Text

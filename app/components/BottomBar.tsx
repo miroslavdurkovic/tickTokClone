@@ -7,7 +7,8 @@ export const BottomBar = () => {
   const theme = SelectedTheme();
 
   return (
-    <View style={[{backgroundColor: theme.backgroundColor}, styles.container]}>
+    <View
+      style={[{backgroundColor: theme.barsBackgroundColor}, styles.container]}>
       <BottomBarButton iconName={'home'} text={'Home'} enabled={true} />
       <BottomBarButton iconName={'compass'} text={'Discover'} />
       <BottomBarButton iconName={'clock-o'} text={'Activity'} />

@@ -1,11 +1,13 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {VerticalActions} from '../components';
-import {Sizes} from '../helpers';
+import {SelectedTheme, Sizes} from '../helpers';
 
 export const FollowingView = () => {
+  const theme = SelectedTheme();
+
   return (
-    <View style={styles.container}>
+    <View style={[{backgroundColor: theme.backgroundColor}, styles.container]}>
       <View style={styles.innerContainer}>
         <View style={styles.leftInnerContainer}></View>
         <VerticalActions />

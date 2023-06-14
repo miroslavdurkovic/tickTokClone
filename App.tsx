@@ -26,13 +26,13 @@ function App(): JSX.Element {
     <SafeAreaView
       style={[
         {
-          backgroundColor: theme.backgroundColor,
+          backgroundColor: theme.barsBackgroundColor,
         },
         styles.container,
       ]}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={theme.backgroundColor}
+        backgroundColor={theme.barsBackgroundColor}
       />
       <View style={styles.container}>
         <Home />

@@ -29,7 +29,7 @@ export const TopBarButton = (props: TopBarProps) => {
           {
             backgroundColor: isSelected
               ? theme.primaryTextColor
-              : theme.backgroundColor,
+              : theme.barsBackgroundColor,
           },
           styles.bottomDash,
         ]}
