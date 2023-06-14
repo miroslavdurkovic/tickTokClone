@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {SelectedTheme, Sizes} from '../helpers';
-import {Icon} from '../atoms/Icon';
+import {Icon} from '../atoms';
 
 interface ActionIconProps {
   iconName: string;
