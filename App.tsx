@@ -6,7 +6,13 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
+import {
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  useColorScheme,
+  View,
+} from 'react-native';
 
 import {Home} from './app/screen';
 import {BottomBar} from './app/components';
@@ -18,17 +24,28 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView
-      style={{
-        backgroundColor: theme.backgroundColor,
-      }}>
+      style={[
+        {
+          backgroundColor: theme.backgroundColor,
+        },
+        styles.container,
+      ]}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={theme.backgroundColor}
       />
-      <Home />
+      <View style={styles.container}>
+        <Home />
+      </View>
       <BottomBar />
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default App;

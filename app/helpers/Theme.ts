@@ -14,6 +14,6 @@ const Theme = {
   dark: {
     backgroundColor: '#000000',
     primaryTextColor: '#FFFFFF',
-    disabledTextColor: '#555555',
+    disabledTextColor: '#858585',
   },
 };

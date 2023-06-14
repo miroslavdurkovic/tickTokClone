@@ -1,8 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-// @ts-ignore  //3rd party - for assessment purpose ignore it
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {SelectedTheme} from '../helpers';
+import {Icon} from '../atoms/Icon';
 
 interface BottomBarProps {
   iconName: string;
