@@ -1,35 +1,34 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {SelectedTheme} from '../helpers';
+import {SelectedTheme, Sizes} from '../helpers';
 import {Icon} from '../atoms/Icon';
 
 interface BottomBarProps {
   iconName: string;
-  iconSize: number;
+  iconSize?: number;
   text: string;
-  enabled: boolean;
+  enabled?: boolean;
 }
 
 export const BottomBarButton = (props: BottomBarProps) => {
+  const {iconName, iconSize = Sizes.size.medium, text, enabled = false} = props;
   const theme = SelectedTheme();
 
   return (
     <View style={styles.container}>
       <Icon
-        name={props.iconName}
-        size={props.iconSize}
-        color={props.enabled ? theme.primaryTextColor : theme.disabledTextColor}
+        name={iconName}
+        size={iconSize}
+        color={enabled ? theme.primaryTextColor : theme.disabledTextColor}
       />
       <Text
         style={[
           {
-            color: props.enabled
-              ? theme.primaryTextColor
-              : theme.disabledTextColor,
+            color: enabled ? theme.primaryTextColor : theme.disabledTextColor,
           },
           styles.text,
         ]}>
-        {props.text}
+        {text}
       </Text>
     </View>
   );
@@ -41,7 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    marginTop: 8,
-    fontSize: 12,
+    marginTop: Sizes.margin.small,
+    fontSize: Sizes.fonts.small,
   },
 });

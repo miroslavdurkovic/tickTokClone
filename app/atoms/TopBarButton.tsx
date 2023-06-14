@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {StyleSheet, TouchableWithoutFeedback, View, Text} from 'react-native';
-import {SelectedTheme, TabContext} from '../helpers';
+import {SelectedTheme, Sizes, TabContext} from '../helpers';
 
 interface TopBarProps {
   id: number;
@@ -42,15 +42,15 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 8,
+    margin: Sizes.margin.small,
   },
   text: {
-    marginTop: 8,
-    fontSize: 18,
+    marginTop: Sizes.margin.small,
+    fontSize: Sizes.fonts.medium,
   },
   bottomDash: {
-    width: 30,
-    height: 4,
-    marginTop: 8,
+    width: Sizes.size.large,
+    height: Sizes.size.extraSmall,
+    marginTop: Sizes.margin.small,
   },
 });
