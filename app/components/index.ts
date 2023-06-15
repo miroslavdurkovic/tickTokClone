@@ -8,3 +8,5 @@ export * from './FollowingBottomBar';
 export * from './Flashcard';
 export * from './MCQ';
 export * from './MSQOption';
+export * from './RateOption';
+export * from './RateOptionsView';

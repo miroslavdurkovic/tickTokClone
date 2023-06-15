@@ -6,9 +6,10 @@
  * Author: Miroslav Durkovic
  * Date: June 15, 2023
  */
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {SelectedTheme, Sizes} from '../helpers';
+import {RateOptionsView} from './RateOptionsView';
 
 // <--- Types --->
 interface FlashCardProps {
@@ -22,7 +23,13 @@ interface FlashCardProps {
 // <--- Component --->
 export const Flashcard = (props: FlashCardProps) => {
   const {frontText, backText, username, description, open} = props;
+  const [selectedRateId, setSelectedRateId] = useState<number | null>(null);
   const theme = SelectedTheme();
+
+  // <--- Effects --->
+  useEffect(() => {
+    setSelectedRateId(null);
+  }, [props]);
 
   return (
     <View style={styles.container}>
@@ -43,6 +50,10 @@ export const Flashcard = (props: FlashCardProps) => {
             <Text style={[{color: theme.disabledTextColor}, styles.text]}>
               {backText}
             </Text>
+            <RateOptionsView
+              selectedId={selectedRateId}
+              onPress={setSelectedRateId}
+            />
           </View>
         )}
       </View>
@@ -68,6 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   backCardContainer: {
+    flexGrow: 1,
     marginTop: Sizes.margin.large,
     paddingTop: Sizes.margin.large,
     borderTopWidth: Sizes.size.extraSmall,
