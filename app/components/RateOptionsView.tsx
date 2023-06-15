@@ -62,12 +62,12 @@ export const RateOptionsView = (props: RateOptionViewProps) => {
           />
         )}
         {!selectedOption &&
-          options.map(option => (
+          options.map((option, index) => (
             <RateOption
               text={option.text}
               color={option.color}
               onPress={onPress}
-              key={option.text}
+              key={index}
             />
           ))}
       </View>

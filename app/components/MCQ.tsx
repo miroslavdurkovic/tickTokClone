@@ -59,12 +59,13 @@ export const MCQ = (props: MCQProps) => {
           {question}
         </Text>
       </View>
-      {options.map(option => (
+      {options.map((option, index) => (
         <MSQOption
           option={option}
           onPress={handleCardPress}
           selectedAnswer={selectedAnswer}
           correctAnswer={correctAnswer}
+          key={index}
         />
       ))}
       <Text style={[{color: theme.primaryTextColor}, styles.usernameText]}>
