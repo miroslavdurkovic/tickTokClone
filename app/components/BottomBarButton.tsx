@@ -1,8 +1,19 @@
+/*
+ * (C) 2023 Miroslav Durkovic. All rights reserved.
+ *
+ * File: BottomBarButton.tsx
+ * Description: This file contains the implementation of BottomBarButton.
+ * Author: Miroslav Durkovic
+ * Date: June 15, 2023
+ */
+
+// <--- Import --->
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {SelectedTheme, Sizes} from '../helpers';
 import {Icon} from '../atoms';
 
+// <--- Types --->
 interface BottomBarProps {
   iconName: string;
   iconSize?: number;
@@ -10,6 +21,7 @@ interface BottomBarProps {
   enabled?: boolean;
 }
 
+// <--- Component --->
 export const BottomBarButton = (props: BottomBarProps) => {
   const {iconName, iconSize = Sizes.size.medium, text, enabled = false} = props;
   const theme = SelectedTheme();
@@ -34,6 +46,7 @@ export const BottomBarButton = (props: BottomBarProps) => {
   );
 };
 
+// <--- Styles --->
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',

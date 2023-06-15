@@ -14,7 +14,7 @@ import {
   View,
 } from 'react-native';
 
-import {Home} from './app/screen';
+import {HomeScreen} from './app/screen';
 import {BottomBar} from './app/components';
 import {SelectedTheme} from './app/helpers';
 
@@ -26,16 +26,16 @@ function App(): JSX.Element {
     <SafeAreaView
       style={[
         {
-          backgroundColor: theme.barsBackgroundColor,
+          backgroundColor: theme.navigationBarsBackgroundColor,
         },
         styles.container,
       ]}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={theme.barsBackgroundColor}
+        backgroundColor={theme.navigationBarsBackgroundColor}
       />
       <View style={styles.container}>
-        <Home />
+        <HomeScreen />
       </View>
       <BottomBar />
     </SafeAreaView>

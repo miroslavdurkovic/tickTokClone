@@ -1,7 +1,16 @@
+/*
+ * (C) 2023 Miroslav Durkovic. All rights reserved.
+ *
+ * File: Flashcard.tsx
+ * Description: This file contains the implementation of Flashcard.
+ * Author: Miroslav Durkovic
+ * Date: June 15, 2023
+ */
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {SelectedTheme, Sizes} from '../helpers';
 
+// <--- Types --->
 interface FlashCardProps {
   frontText?: string;
   backText?: string;
@@ -9,13 +18,16 @@ interface FlashCardProps {
   username?: string;
   open: boolean;
 }
+
+// <--- Component --->
 export const Flashcard = (props: FlashCardProps) => {
   const {frontText, backText, username, description, open} = props;
   const theme = SelectedTheme();
 
   return (
     <View style={styles.container}>
-      <View style={styles.cardContainer}>
+      <View
+        style={[styles.cardContainer, open && {justifyContent: 'flex-start'}]}>
         <Text style={[{color: theme.primaryTextColor}, styles.text]}>
           {frontText}
         </Text>
@@ -44,6 +56,7 @@ export const Flashcard = (props: FlashCardProps) => {
   );
 };
 
+// <--- Styles --->
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -60,11 +73,12 @@ const styles = StyleSheet.create({
     borderTopWidth: Sizes.size.extraSmall,
   },
   text: {
-    fontSize: Sizes.fonts.large,
+    fontSize: Sizes.fonts.medium,
   },
   answerText: {
-    fontSize: Sizes.fonts.medium,
+    fontSize: Sizes.fonts.small,
     fontWeight: 'bold',
+    marginBottom: Sizes.margin.small,
   },
   usernameText: {
     fontSize: Sizes.fonts.medium,

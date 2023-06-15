@@ -1,3 +1,13 @@
+/*
+ * (C) 2023 Miroslav Durkovic. All rights reserved.
+ *
+ * File: FollowingView.tsx
+ * Description: This file contains the implementation of FollowingView.
+ * Author: Miroslav Durkovic
+ * Date: June 15, 2023
+ */
+
+// <--- Import --->
 import React, {useEffect, useState} from 'react';
 import {Pressable, ScrollView, StyleSheet, View} from 'react-native';
 import {Flashcard, FollowingBottomBar, VerticalActions} from '../components';
@@ -8,15 +18,18 @@ import {
   Sizes,
 } from '../helpers';
 
+// <--- Component --->
 export const FollowingView = () => {
   const theme = SelectedTheme();
   const [data, setData] = useState<FlashCardType>();
   const [flashCardOpen, setFlashCardOpen] = useState(false);
 
+  // <--- Effects --->
   useEffect(() => {
     getNextData();
   }, []);
 
+  // <--- Functions --->
   const getNextData = () => {
     getFollowingAction()
       .then(responseData => {
@@ -26,16 +39,21 @@ export const FollowingView = () => {
       .catch(error => console.log('Error: ', error));
   };
 
+  // <--- Actions --->
   const handleCardPress = () => {
     setFlashCardOpen(!flashCardOpen);
   };
 
   return (
-    <View style={[{backgroundColor: theme.backgroundColor}, styles.container]}>
-      <View style={styles.innerContainer}>
+    <View style={styles.container}>
+      <View
+        style={[
+          {backgroundColor: theme.backgroundColor},
+          styles.innerContainer,
+        ]}>
         <ScrollView
           onMomentumScrollEnd={getNextData}
-          contentContainerStyle={styles.innerContainer}>
+          contentContainerStyle={styles.scrollViewContainer}>
           <Pressable onPress={handleCardPress}>
             <Flashcard
               frontText={data?.flashcard_front}
@@ -53,16 +71,18 @@ export const FollowingView = () => {
   );
 };
 
+// <--- Styles --->
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: Sizes.margin.medium,
   },
   innerContainer: {
     flex: 1,
     flexDirection: 'row',
+    paddingRight: Sizes.margin.medium,
   },
-  leftInnerContainer: {
-    flexGrow: 1,
+  scrollViewContainer: {
+    flex: 1,
+    flexDirection: 'row',
   },
 });

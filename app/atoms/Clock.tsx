@@ -1,12 +1,25 @@
+/*
+ * (C) 2023 Miroslav Durkovic. All rights reserved.
+ *
+ * File: Clock.tsx
+ * Description: This file contains the implementation of Clock.
+ * Author: Miroslav Durkovic
+ * Date: June 15, 2023
+ */
+
+// <--- Import --->
 import {SelectedTheme, Sizes} from '../helpers';
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Icon} from './Icon';
 
+// <--- Component --->
 export const Clock = () => {
   const theme = SelectedTheme();
   const [counter, setCounter] = useState(0);
 
+  // <--- Effects --->
+  // Increase after every second counter
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCounter(prevCounter => prevCounter + 1);
@@ -17,6 +30,8 @@ export const Clock = () => {
     };
   }, []);
 
+  // <--- Functions --->
+  // Calculate final string
   const getTimeString = () => {
     // Perform time calculations
     const seconds = counter % 60;
@@ -39,11 +54,13 @@ export const Clock = () => {
   );
 };
 
+// <--- Styles --->
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    width: Sizes.size.extraLarge,
   },
   text: {
     marginLeft: Sizes.margin.small,

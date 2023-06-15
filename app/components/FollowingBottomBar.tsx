@@ -1,11 +1,24 @@
+/*
+ * (C) 2023 Miroslav Durkovic. All rights reserved.
+ *
+ * File: FollowingBottomBar.tsx
+ * Description: This file contains the implementation of FollowingBottomBar.
+ * Author: Miroslav Durkovic
+ * Date: June 15, 2023
+ */
+
+// <--- Import --->
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {SelectedTheme, Sizes} from '../helpers';
 import {Icon} from '../atoms';
 
+// <--- Types --->
 interface FollowingBottomBarProps {
   text?: string;
 }
+
+// <--- Component --->
 export const FollowingBottomBar = (props: FollowingBottomBarProps) => {
   const theme = SelectedTheme();
   const {text} = props;
@@ -16,7 +29,7 @@ export const FollowingBottomBar = (props: FollowingBottomBarProps) => {
 
   return (
     <View
-      style={[{backgroundColor: theme.barsBackgroundColor}, styles.container]}>
+      style={[{backgroundColor: theme.barBackgroundColor}, styles.container]}>
       <View style={styles.rightContainer}>
         <Icon name={'youtube-play'} />
         <Text
@@ -30,6 +43,7 @@ export const FollowingBottomBar = (props: FollowingBottomBarProps) => {
   );
 };
 
+// <--- Styles --->
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',

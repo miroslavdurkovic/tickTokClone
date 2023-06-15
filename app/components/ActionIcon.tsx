@@ -1,8 +1,19 @@
+/*
+ * (C) 2023 Miroslav Durkovic. All rights reserved.
+ *
+ * File: ActionIcon.tsx
+ * Description: This file contains the implementation of ActionIcon.
+ * Author: Miroslav Durkovic
+ * Date: June 15, 2023
+ */
+
+// <--- Import --->
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {SelectedTheme, Sizes} from '../helpers';
 import {Icon} from '../atoms';
 
+// <--- Types --->
 interface ActionIconProps {
   iconName: string;
   iconSize?: number;
@@ -11,11 +22,12 @@ interface ActionIconProps {
   text?: string;
 }
 
+// <--- Component --->
 export const ActionIcon = (props: ActionIconProps) => {
   const theme = SelectedTheme();
   const {
     iconName,
-    iconSize = Sizes.size.large,
+    iconSize = Sizes.size.medium,
     text,
     iconColor = theme.primaryTextColor,
     iconBackgroundColor,
@@ -29,8 +41,10 @@ export const ActionIcon = (props: ActionIconProps) => {
     : {};
 
   return (
-    <View style={[styles.container, circleStyle]}>
-      <Icon name={iconName} size={iconSize} color={iconColor} />
+    <View style={[styles.container]}>
+      <View style={circleStyle}>
+        <Icon name={iconName} size={iconSize} color={iconColor} />
+      </View>
       {text && (
         <Text style={[{color: theme.primaryTextColor}, styles.text]}>
           {text}
@@ -40,6 +54,7 @@ export const ActionIcon = (props: ActionIconProps) => {
   );
 };
 
+// <--- Styles --->
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
@@ -47,9 +62,11 @@ const styles = StyleSheet.create({
     marginVertical: Sizes.margin.small,
   },
   circle: {
-    width: Sizes.size.extraLarge,
-    height: Sizes.size.extraLarge,
-    borderRadius: Sizes.size.extraLarge / 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: Sizes.size.mediumLarge,
+    height: Sizes.size.mediumLarge,
+    borderRadius: Sizes.size.mediumLarge / 2,
   },
   text: {
     marginTop: Sizes.margin.small,
