@@ -23,6 +23,7 @@ export const FollowingView = () => {
   const theme = SelectedTheme();
   const [data, setData] = useState<FlashCardType>();
   const [flashCardOpen, setFlashCardOpen] = useState(false);
+  const [selectedRateId, setSelectedRateId] = useState<number | null>(null);
 
   // <--- Effects --->
   useEffect(() => {
@@ -34,6 +35,7 @@ export const FollowingView = () => {
     getFollowingAction()
       .then(responseData => {
         setFlashCardOpen(false);
+        setSelectedRateId(null);
         setData(responseData);
       })
       .catch(error => console.log('Error: ', error));
@@ -61,6 +63,8 @@ export const FollowingView = () => {
               description={data?.description}
               username={data?.user?.name}
               open={flashCardOpen}
+              selectedRateId={selectedRateId}
+              onRatePress={setSelectedRateId}
             />
           </Pressable>
         </ScrollView>

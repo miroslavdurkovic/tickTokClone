@@ -29,7 +29,6 @@ export const RateOption = (props: RateOptionProps) => {
   return (
     <TouchableOpacity
       style={[styles.container, {backgroundColor: color}]}
-      key={`${text}`}
       onPress={handleOnPress}>
       <Text style={[{color: theme.primaryTextColor}, styles.text]}>{text}</Text>
     </TouchableOpacity>

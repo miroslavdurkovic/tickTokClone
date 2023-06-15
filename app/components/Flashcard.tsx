@@ -6,7 +6,7 @@
  * Author: Miroslav Durkovic
  * Date: June 15, 2023
  */
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {SelectedTheme, Sizes} from '../helpers';
 import {RateOptionsView} from './RateOptionsView';
@@ -18,18 +18,22 @@ interface FlashCardProps {
   description?: string;
   username?: string;
   open: boolean;
+  selectedRateId: number | null;
+  onRatePress: (id: number) => void;
 }
 
 // <--- Component --->
 export const Flashcard = (props: FlashCardProps) => {
-  const {frontText, backText, username, description, open} = props;
-  const [selectedRateId, setSelectedRateId] = useState<number | null>(null);
+  const {
+    frontText,
+    backText,
+    username,
+    description,
+    open,
+    selectedRateId,
+    onRatePress,
+  } = props;
   const theme = SelectedTheme();
-
-  // <--- Effects --->
-  useEffect(() => {
-    setSelectedRateId(null);
-  }, [props]);
 
   return (
     <View style={styles.container}>
@@ -52,7 +56,7 @@ export const Flashcard = (props: FlashCardProps) => {
             </Text>
             <RateOptionsView
               selectedId={selectedRateId}
-              onPress={setSelectedRateId}
+              onPress={onRatePress}
             />
           </View>
         )}

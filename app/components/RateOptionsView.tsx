@@ -58,6 +58,7 @@ export const RateOptionsView = (props: RateOptionViewProps) => {
             text={selectedOption.text}
             color={selectedOption.color}
             onPress={onPress}
+            key={selectedOption.text}
           />
         )}
         {!selectedOption &&
@@ -66,6 +67,7 @@ export const RateOptionsView = (props: RateOptionViewProps) => {
               text={option.text}
               color={option.color}
               onPress={onPress}
+              key={option.text}
             />
           ))}
       </View>
